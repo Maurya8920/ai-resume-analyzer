@@ -31,5 +31,4 @@ cd mern_ai
 npm install  
 npm run dev  
 
-## 📄 License
-This project is for learning purposes.
+
