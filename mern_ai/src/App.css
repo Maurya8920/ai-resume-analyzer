@@ -1,0 +1,26 @@
+.App {
+  display: flex;
+  min-height: 100vh;
+  background: var(--gradient-bg);
+}
+
+.appContent {
+  flex: 1;
+  min-height: 100vh;
+  overflow-y: auto;
+  margin-left: var(--sidebar-width);
+  transition: margin-left var(--transition-base);
+}
+
+.appContent.fullWidth {
+  margin-left: 0;
+}
+
+@media screen and (max-width: 780px) {
+  .App {
+    flex-direction: column;
+  }
+  .appContent {
+    margin-left: 0;
+  }
+}

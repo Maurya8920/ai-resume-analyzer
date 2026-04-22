@@ -1,0 +1,554 @@
+.Dashboard {
+  padding: 32px 40px;
+  min-height: 100vh;
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ===== PAGE HEADER ===== */
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.pageTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.pageSubtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.userBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px 8px 8px;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.userBadgeAvatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ===== GRID ===== */
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* ===== CARDS ===== */
+.card {
+  background: var(--glass-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 20px;
+  transition: var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--border-accent);
+}
+
+.cardLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+/* ===== UPLOAD ZONE ===== */
+.uploadZone {
+  border: 2px dashed rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  cursor: pointer;
+  transition: var(--transition-base);
+  text-align: center;
+}
+
+.uploadZone:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.uploadZoneActive {
+  border-color: #6366f1;
+  background: rgba(99, 102, 241, 0.1);
+  transform: scale(1.01);
+}
+
+.uploadZoneHasFile {
+  border-style: solid;
+  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.fileInput {
+  display: none;
+}
+
+.uploadPlaceholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.uploadIconWrap {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 50%;
+  margin-bottom: 4px;
+}
+
+.uploadText {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.uploadSubtext {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* File info */
+.fileInfo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+}
+
+.fileIcon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: var(--radius-md);
+}
+
+.fileName {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.fileSize {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ===== TEXTAREA ===== */
+.textArea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  resize: vertical;
+  outline: none;
+  transition: var(--transition-base);
+}
+
+.textArea::placeholder {
+  color: var(--text-muted);
+}
+
+.textArea:focus {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.textAreaFooter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* ===== ANALYZE BUTTON ===== */
+.analyzeBtn {
+  width: 100%;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: var(--transition-base);
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+.analyzeBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+}
+
+.analyzeBtn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.analyzeBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  animation: none;
+}
+
+.btnSpinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* ===== RESULT SECTION ===== */
+.resultSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Loading */
+.loadingCard {
+  background: var(--glass-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 48px 32px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.loadingCard h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.loadingCard p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.loadingAnimation {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+.loadingOrb, .loadingOrb2 {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid transparent;
+}
+
+.loadingOrb {
+  border-top-color: #6366f1;
+  animation: spin 1s linear infinite;
+}
+
+.loadingOrb2 {
+  inset: 8px;
+  border-bottom-color: #a855f7;
+  animation: spin 1.5s linear infinite reverse;
+}
+
+.loadingBar {
+  width: 200px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  margin: 20px auto 0;
+  overflow: hidden;
+}
+
+.loadingBarFill {
+  width: 40%;
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  animation: shimmer 2s ease-in-out infinite;
+  background-size: 200% 100%;
+}
+
+/* Empty state */
+.emptyState {
+  background: var(--glass-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 64px 32px;
+  text-align: center;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.emptyIcon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 50%;
+  border: 1px dashed var(--border-subtle);
+}
+
+.emptyState h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.emptyState p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* ===== RESULT CARD ===== */
+.resultCard {
+  background: var(--glass-bg);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  animation: scaleIn 0.5s ease-out;
+}
+
+.scoreSection {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.scoreCircle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--score-color) 0deg,
+    var(--score-color) var(--score-deg),
+    rgba(255, 255, 255, 0.06) var(--score-deg),
+    rgba(255, 255, 255, 0.06) 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  animation: scoreReveal 0.8s ease-out;
+  position: relative;
+}
+
+.scoreInner {
+  width: 110px;
+  height: 110px;
+  background: var(--bg-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+}
+
+.scoreValue {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+  padding-top: 30px;
+}
+
+.scorePercent {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding-top: 30px;
+}
+
+.scoreLabel {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.feedbackSection {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 20px;
+}
+
+.feedbackTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.feedbackText {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.resultMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Error card */
+.errorCard {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.errorCard h3 {
+  color: #ef4444;
+  margin-bottom: 8px;
+}
+
+.errorCard p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.retryBtn {
+  padding: 10px 24px;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-md);
+  color: #ef4444;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.retryBtn:hover {
+  background: rgba(239, 68, 68, 0.25);
+}
+
+/* Info card */
+.infoCard {
+  background: rgba(99, 102, 241, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+
+.infoCard h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+}
+
+.infoCard ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.infoCard li {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  padding-left: 16px;
+  position: relative;
+}
+
+.infoCard li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--text-accent);
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 780px) {
+  .Dashboard {
+    padding: 20px 16px;
+  }
+
+  .pageHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .mainGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .scoreCircle {
+    width: 120px;
+    height: 120px;
+  }
+
+  .scoreInner {
+    width: 92px;
+    height: 92px;
+  }
+
+  .scoreValue {
+    font-size: 2rem;
+  }
+}
